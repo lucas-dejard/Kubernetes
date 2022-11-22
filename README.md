@@ -32,3 +32,24 @@ Para iniciar o projeto se cria um diretório com o comando:
 Entramos no diretório criado:
 
 `$ cd nomedodiretorio`
+
+Se cria o namespace:
+
+`$ kubectl create namespace <nomeaqui>`
+
+###Criação do Secret
+
+Iremos criar um arquivo para armazenar nossas senhas e manter a segurança do nosso ambiente:
+
+>secrets.yaml
+
+Com o seguinte conteúdo:
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-password
+type: Opaque
+data:
+  password: YWRtaW4=
+```
