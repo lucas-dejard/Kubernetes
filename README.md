@@ -35,7 +35,7 @@ Entramos no diretório criado:
 
 Se cria o namespace:
 
-`$ kubectl create namespace <nomeaqui>`
+`$ kubectl create namespace labwordpress`
 
 ### Criação do Secret
 
@@ -241,56 +241,9 @@ spec:
 
 E após todas essas configurações realizadas podemos aplicar no nosso Cluster:
 
-`$ kubectl apply -f ./ -R --namespace=seunamespaceaqui`
+`$ kubectl apply -f ./ -R --namespace=labwordpress`
 
 Lembre-se de estar sempre no diretório raiz da aplicação!
-
-## Realizando o Ingress
-
-Criamos o arquivo com a seguinte configuração:
-
-```
-apiVersion: networking.k8s.io/v1
-   
-kind: Ingress
-   
-metadata:
-   
-  name: example-ingress
-   
-spec:
-  ingressClassName: nginx
-  
-  rules:
-   
-    - host: wordtest.info
-   
-      http:
-   
-        paths:
-   
-          - path: /
-   
-            pathType: Prefix
-   
-            backend:
-   
-              service:
-   
-                name: wordpress
-   
-                port:
-   
-                  number: 8080
-```
-
-`$ kubectl apply -f <arquivoingress> --namespace=seunamespaceaqui`
-
-E por ultimo vamos acrescentar a linha `127.0.0.1 seusite.info`
-
-com o comando:
-
-`$ sudo vi /etc/hosts`
 
 E assim sua aplicação de Wordpress com Mysql estará rodando!
 
