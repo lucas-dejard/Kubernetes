@@ -250,6 +250,6 @@ E assim sua aplicação de Wordpress com Mysql estará rodando!
 ## Utilizando a aplicação
 
 com o comando:
-`$ kubectl get ingresss`
+`$ kubectl service --all`
 
 podemos ver que na coluna "Hosts" temos o link que iremos usar no navegador para acessar a página
