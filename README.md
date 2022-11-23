@@ -241,6 +241,59 @@ spec:
 
 E após todas essas configurações realizadas podemos aplicar no nosso Cluster:
 
-`$ kubectl apply -f ./ -R`
+`$ kubectl apply -f ./ -R --namespace=seunamespaceaqui`
 
 Lembre-se de estar sempre no diretório raiz da aplicação!
+
+## Realizando o Ingress
+
+Criamos o arquivo com a seguinte configuração:
+
+```
+apiVersion: networking.k8s.io/v1
+   
+kind: Ingress
+   
+metadata:
+   
+  name: example-ingress
+   
+  annotations:
+   
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+   
+spec:
+   
+  rules:
+   
+    - host: wordtest.info
+   
+      http:
+   
+        paths:
+   
+          - path: /
+   
+            pathType: Prefix
+   
+            backend:
+   
+              service:
+   
+                name: wordpress
+   
+                port:
+   
+                  number: 8080
+```
+
+`$ kubectl apply -f <arquivoingress> --namespace=seunamespaceaqui`
+
+E assim sua aplicação de Wordpress com Mysql estará rodando!
+
+## Utilizando a aplicação
+
+com o comando:
+`$ kubectl get ingresss`
+
+podemos ver que na coluna "Hosts" temos o link que iremos usar no navegador para acessar a página
