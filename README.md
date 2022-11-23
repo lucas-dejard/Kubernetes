@@ -286,6 +286,12 @@ spec:
 
 `$ kubectl apply -f <arquivoingress> --namespace=seunamespaceaqui`
 
+E por ultimo vamos acrescentar a linha `127.0.0.1 seusite.info`
+
+com o comando:
+
+`$ sudo vi /etc/hosts`
+
 E assim sua aplicação de Wordpress com Mysql estará rodando!
 
 ## Utilizando a aplicação
