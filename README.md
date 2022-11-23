@@ -258,12 +258,9 @@ metadata:
    
   name: example-ingress
    
-  annotations:
-   
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-   
 spec:
-   
+  ingressClassName: nginx
+  
   rules:
    
     - host: wordtest.info
