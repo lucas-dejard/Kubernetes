@@ -246,6 +246,9 @@ E após todas essas configurações realizadas podemos aplicar no nosso Cluster:
 Lembre-se de estar sempre no diretório raiz da aplicação!
 
 E assim sua aplicação de Wordpress com Mysql estará rodando!
+## Verificando se está tudo criado
+com o comando:
+`kubectl get pods,svc,pvc -n labwordpress`
 
 ## Utilizando a aplicação
 
